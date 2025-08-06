@@ -13,6 +13,102 @@ import random
 load_dotenv()
 
 
+mobile_accessories
+    "iPhone 16 pro case",
+    "iPhone 16 pro screen protector",
+    "iPhone 16 pro max case",
+    "iPhone 15 case deals",
+    "MagSafe accessories",
+    "Clear iPhone case",
+    "iPhone camera protector",
+    "iPhone charging cable",
+    "Wireless mouse",
+    "Wireless charging pad",
+    "Battery bank",
+    "Phone grip holder",
+    "Car phone mount",
+    "iPhone lens attachment",
+]
+
+
+tech_accessories = [
+    "USB-C accessories",
+    "Fast charging block",
+    "Portable charger 20000mah",
+    "Laptop stand adjustable",
+    "Mechanical keyboard budget",
+    "RGB gaming mouse",
+    "Webcam with ring light",
+    "Bluetooth earbuds under $50",
+    "Cable organizer desk",
+    "Monitor light bar",
+]
+
+
+back_to_school = [
+    "Student laptop bag",
+    "Study desk organizer",
+    "Noise cancelling headphones studying",
+    "iPad accessories students",
+    "Backpack with USB port",
+]
+
+
+gift_holiday = [
+    "Tech gifts under $25",
+    "Stocking stuffers tech",
+    "Gift ideas iPhone users",
+    "Bluetooth tracker keys",
+    "Smart home starter kit",
+]
+
+
+home_office = [
+    "Standing desk converter",
+    "Ergonomic mouse pad",
+    "Blue light glasses",
+    "Desk cable management",
+    "Monitor arm mount",
+]
+
+
+smart_home = [
+    "Smart plug Alexa",
+    "LED strip lights",
+    "Security camera indoor",
+    "Smart light bulbs",
+    "Video doorbell",
+]
+
+
+fitness_tech = [
+    "Fitness tracker under $30",
+    "Bluetooth scale",
+    "Foam roller electric",
+    "Resistance bands set",
+    "Yoga mat thick"
+]
+
+
+hashtags = [
+    "#iPhoneDeals",
+    "#TechFinds",
+    "#AmazonFinds",
+    "#PhoneAccessories",
+    "#TechLovers",
+    "#GadgetAddict",
+    "#DailyDeals",
+    "#FlashSale",
+    "#LimitedTimeOffer",
+    "#TechUnder20",
+    "#BudgetTech",
+    "#TechReview",
+    "#MustHave2025",
+    "#TechEssentials",
+    "#WorkFromHome"
+]
+
+
 class AmazonItem(BaseModel):
     name: str
     description: str
