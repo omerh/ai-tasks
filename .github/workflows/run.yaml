@@ -1,0 +1,42 @@
+name: Daily Amazon Post Generator
+
+on:
+  # schedule:
+  #   # Run once a day at 9:00 AM UTC (adjust timezone as needed)
+  #   - cron: "0 9 * * *"
+  workflow_dispatch: # Allow manual triggering from GitHub UI
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          uv sync --system
+
+      - name: Create .env file
+        run: |
+          cat > .env << EOF
+          GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
+          PAAPI_ACCESS_KEY=${{ secrets.PAAPI_ACCESS_KEY }}
+          PAAPI_SECRET_KEY=${{ secrets.PAAPI_SECRET_KEY }}
+          PAAPI_PARTNER_TAG=${{ secrets.PAAPI_PARTNER_TAG }}
+          EOF
+
+      - name: Generate Facebook post
+        run: |
+          uv run post

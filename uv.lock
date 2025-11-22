@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.13'",
@@ -9,12 +9,14 @@ resolution-markers = [
 [[package]]
 name = "ai-tasks"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "asyncio" },
     { name = "browser-use" },
     { name = "google-genai" },
     { name = "loguru" },
+    { name = "paapi5-python-sdk" },
+    { name = "python-dotenv" },
 ]
 
 [package.metadata]
@@ -23,6 +25,8 @@ requires-dist = [
     { name = "browser-use", specifier = ">=0.5.7" },
     { name = "google-genai", specifier = ">=1.28.0" },
     { name = "loguru", specifier = ">=0.7.3" },
+    { name = "paapi5-python-sdk", directory = "paapi5-python-sdk-example/paapi5-python-sdk-example" },
+    { name = "python-dotenv", specifier = ">=0.21.0" },
 ]
 
 [[package]]
@@ -766,6 +770,25 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d8/9d/52eadb15c92802711d6b6cf00df3a6d0d18b588f4c5ba5ff210c6419fc03/openai-1.98.0.tar.gz", hash = "sha256:3ee0fcc50ae95267fd22bd1ad095ba5402098f3df2162592e68109999f685427", size = 496695, upload-time = "2025-07-30T12:48:03.701Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a8/fe/f64631075b3d63a613c0d8ab761d5941631a470f6fa87eaaee1aa2b4ec0c/openai-1.98.0-py3-none-any.whl", hash = "sha256:b99b794ef92196829120e2df37647722104772d2a74d08305df9ced5f26eae34", size = 767713, upload-time = "2025-07-30T12:48:01.264Z" },
+]
+
+[[package]]
+name = "paapi5-python-sdk"
+version = "1.2.4"
+source = { directory = "paapi5-python-sdk-example/paapi5-python-sdk-example" }
+dependencies = [
+    { name = "certifi" },
+    { name = "python-dateutil" },
+    { name = "six" },
+    { name = "urllib3" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "certifi" },
+    { name = "python-dateutil" },
+    { name = "six", specifier = ">=1.10" },
+    { name = "urllib3", specifier = ">=1.15" },
 ]
 
 [[package]]
