@@ -37,6 +37,14 @@ jobs:
           PAAPI_PARTNER_TAG=${{ secrets.PAAPI_PARTNER_TAG }}
           EOF
 
+      - name: Test sdk installation
+        run: |
+          uv run ./test_paapi.py
+
+      - name: Test access
+        run: |
+          uv run ./test_api_access.py
+
       - name: Generate Facebook post
         run: |
           uv run post
