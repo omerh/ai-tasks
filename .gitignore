@@ -48,7 +48,6 @@ htmlcov/
 
 # Project specific
 conversations/
-test_*.py
 
 # uv
 uv.lock
