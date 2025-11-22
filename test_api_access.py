@@ -54,5 +54,7 @@ for host, region in hosts:
     except ApiException as e:
         print(f"❌ API Error: Status {e.status}")
         print(f"Body: {e.body}")
+        raise
     except Exception as e:
         print(f"❌ Error: {e}")
+        raise
