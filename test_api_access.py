@@ -11,14 +11,26 @@ from paapi5_python_sdk.rest import ApiException
 
 load_dotenv()
 
-access_key = os.getenv("PAAPI_ACCESS_KEY")
-secret_key = os.getenv("PAAPI_SECRET_KEY")
-partner_tag = os.getenv("PAAPI_PARTNER_TAG")
+access_key = os.getenv("PAAPI_ACCESS_KEY", None)
+secret_key = os.getenv("PAAPI_SECRET_KEY", None)
+partner_tag = os.getenv("PAAPI_PARTNER_TAG", None)
 
-print(f"Testing with:")
+if partner_tag is None:
+    raise ValueError("PAAPI_PARTNER_TAG is not set")
+
+if access_key is None:
+    raise ValueError("PAAPI_ACCESS_KEY is not set")
+
+if secret_key is None:
+    raise ValueError("PAAPI_SECRET_KEY is not set")
+
+print("Testing with:")
 print(f"Access Key: {access_key}")
 print(f"Partner Tag: {partner_tag}")
-print(f"Secret Key: {secret_key[:10]}...")
+if secret_key is not None:
+    print(f"Secret Key: {secret_key[:10]}...")
+else:
+    print("⚠️ Secret Key not set")
 
 # Try different hosts
 hosts = [
@@ -27,7 +39,6 @@ hosts = [
 
 for host, region in hosts:
     print(f"\n\nTesting {host} ({region})...")
-
     default_api = DefaultApi(
         access_key=access_key, secret_key=secret_key, host=host, region=region
     )
@@ -49,7 +60,7 @@ for host, region in hosts:
                 f"Found item: {response.items_result.items[0].item_info.title.display_value}"
             )
         else:
-            print(f"⚠️ Response but no items")
+            print("⚠️ Response but no items")
 
     except ApiException as e:
         print(f"❌ API Error: Status {e.status}")
