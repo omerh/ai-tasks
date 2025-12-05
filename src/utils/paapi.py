@@ -34,6 +34,10 @@ def search_items_with_deals(
     secret_key = os.getenv("PAAPI_SECRET_KEY")
     partner_tag = os.getenv("PAAPI_PARTNER_TAG")
 
+    print(f"access_key: {access_key}")
+    print(f"secret_key: {secret_key}")
+    print(f"partner_tag: {partner_tag}")
+
     if not all([access_key, secret_key, partner_tag]):
         logger.error("Missing PA-API credentials in environment variables")
         return None
